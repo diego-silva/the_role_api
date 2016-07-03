@@ -32,13 +32,9 @@ module TheRole
       end
     end
 
-    if Rails::VERSION::MAJOR == 4
+    if Rails::VERSION::MAJOR == 4 || Rails::VERSION::MAJOR == 5
       config.autoload_paths << "#{ config.root }/app/models/concerns/**"
       config.autoload_paths << "#{ config.root }/app/controllers/concerns/**"
-    end
-
-    if Rails::VERSION::MAJOR == 5
-      raise Exception.new("TheRole 3. Version for Rails 5 not tested yet")
     end
 
     initializer "the_role_precompile_hook", group: :all do |app|
